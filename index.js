@@ -3,6 +3,8 @@ const app = express();
 const PORT = 5100;
 require("dotenv").config(); // Carga las variables del .env
 const mongoose = require("mongoose");
+// Habilitar lectura de JSON en las peticiones para el CRUD
+app.use(express.json());
 
 app.listen(PORT, () => {
   console.log("Hello World");
@@ -21,6 +23,11 @@ const conectarDB = async () => {
 
 // Ejecutar la conexión
 conectarDB();
+
+// ---RUTAS -----
+app.use("/api/usuarios", require("./src/routes/usuarioRoutes"));
+app.use("/api/tareas", require("./src/routes/tareaRoutes"));
+// ------------------------------------
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
