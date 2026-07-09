@@ -28,7 +28,14 @@ conectarDB();
 app.use("/api/usuarios", require("./src/routes/usuarioRoutes"));
 app.use("/api/tareas", require("./src/routes/tareaRoutes"));
 // ------------------------------------
+// Ruta principal para que no salga error visual
+app.get("/", function (req, res) {
+  res.send("La API de Control de Tareas esta funcionando en Vercel");
+});
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
+
+// --- ESTA LÍNEA ES LA CLAVE PARA QUE VERCEL NO FALLE ---
+module.exports = app;
