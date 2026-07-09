@@ -14,7 +14,7 @@ app.listen(PORT, () => {
 const conectarDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
-    console.log("CONECTADO A MONGO DB🤙");
+    console.log("CONECTADO A MONGO DB");
   } catch (error) {
     console.error("Error al conectar a la base de datos:", error);
     process.exit(1); // Detiene la app si falla la conexión
