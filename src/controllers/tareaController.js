@@ -1,4 +1,4 @@
-const Tarea = require("../models/Tarea"); // Importa el modelo de datos de tareas
+const Tarea = require("../models/tarea"); // Importa el modelo de datos de tareas
 
 // Crear
 exports.crearTarea = async (req, res) => {
