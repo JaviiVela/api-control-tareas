@@ -7,6 +7,12 @@ const PORT = 5100;
 
 app.use(express.json());
 
+// 1. Importamos el middleware
+const validarTokenApp = require("./src/middlewares/auth");
+
+// 2. Lo aplicamos a TODAS las rutas que empiecen con /api
+app.use("/api", validarTokenApp);
+
 // Función para conectar a MongoDB adaptada para Vercel
 const conectarDB = async () => {
   try {
