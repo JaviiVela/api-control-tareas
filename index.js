@@ -1,11 +1,15 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const helmet = require("helmet");
 
 const app = express();
 const PORT = 5100;
 
 app.use(express.json());
+
+// Implementacion de seguridad de Helmet
+app.use(helmet());
 
 // 1. Importamos el middleware
 const validarTokenApp = require("./src/middlewares/auth");
